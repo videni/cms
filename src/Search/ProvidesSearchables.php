@@ -2,7 +2,7 @@
 
 namespace Statamic\Search;
 
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 
 interface ProvidesSearchables
 {
@@ -12,9 +12,9 @@ interface ProvidesSearchables
 
     public function setKeys(array $keys): self;
 
-    public function provide(): Collection;
+    public function provide(): Enumerable;
 
     public function contains($searchable): bool;
 
-    public function find(array $keys): Collection;
+    public function find(array $keys): Enumerable;
 }

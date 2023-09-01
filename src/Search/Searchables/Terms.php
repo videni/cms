@@ -2,7 +2,7 @@
 
 namespace Statamic\Search\Searchables;
 
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Statamic\Contracts\Taxonomies\Term as TermContract;
 use Statamic\Facades\Term;
 use Statamic\Support\Str;
@@ -19,7 +19,7 @@ class Terms extends Provider
         return 'term';
     }
 
-    public function provide(): Collection
+    public function provide(): Enumerable
     {
         $query = Term::query();
 
@@ -51,7 +51,7 @@ class Terms extends Provider
         return $this->filter()($searchable);
     }
 
-    public function find(array $refs): Collection
+    public function find(array $refs): Enumerable
     {
         $ids = collect($refs)
             ->groupBy(fn ($ref) => Str::beforeLast($ref, '::'))
