@@ -2,9 +2,9 @@
 
 namespace Statamic\Search\Searchables;
 
-use Illuminate\Support\Collection;
 use Statamic\Contracts\Auth\User as UserContract;
 use Statamic\Facades\User;
+use Illuminate\Support\Enumerable;
 
 class Users extends Provider
 {
@@ -18,7 +18,7 @@ class Users extends Provider
         return 'user';
     }
 
-    public function provide(): Collection
+    public function provide(): Enumerable
     {
         return User::all()->filter($this->filter())->values();
     }
@@ -32,7 +32,7 @@ class Users extends Provider
         return $this->filter()($searchable);
     }
 
-    public function find(array $ids): Collection
+    public function find(array $ids): Enumerable
     {
         return User::query()->whereIn('id', $ids)->get();
     }

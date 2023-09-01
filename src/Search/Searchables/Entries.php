@@ -3,6 +3,7 @@
 namespace Statamic\Search\Searchables;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Statamic\Contracts\Entries\Entry as EntryContract;
 use Statamic\Facades\Entry;
 
@@ -18,7 +19,7 @@ class Entries extends Provider
         return 'entry';
     }
 
-    public function provide(): Collection
+    public function provide(): Enumerable
     {
         $query = Entry::query();
 

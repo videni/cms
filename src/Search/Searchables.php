@@ -4,7 +4,7 @@ namespace Statamic\Search;
 
 use Closure;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Statamic\Contracts\Search\Searchable;
 use Statamic\Search\Searchables\Providers;
 use Statamic\Support\Arr;
@@ -38,7 +38,7 @@ class Searchables
             ->map(fn ($items, $provider) => $manager->make($provider, $this->index, $items->map->key->all()));
     }
 
-    public function all(): Collection
+    public function all(): Enumerable
     {
         return $this->providers->flatMap->provide();
     }

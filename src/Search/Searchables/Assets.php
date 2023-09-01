@@ -2,7 +2,7 @@
 
 namespace Statamic\Search\Searchables;
 
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Statamic\Assets\AssetCollection;
 use Statamic\Contracts\Assets\Asset as AssetContract;
 use Statamic\Facades\Asset;
@@ -19,7 +19,7 @@ class Assets extends Provider
         return 'asset';
     }
 
-    public function provide(): Collection
+    public function provide(): Enumerable
     {
         $assets = $this->usesWildcard()
             ? Asset::all()
@@ -42,7 +42,7 @@ class Assets extends Provider
         return $this->filter()($searchable);
     }
 
-    public function find(array $keys): Collection
+    public function find(array $keys): Enumerable
     {
         return collect($keys)->map(function ($id) {
             [$container, $path] = explode('::', $id);
