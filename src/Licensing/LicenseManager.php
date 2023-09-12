@@ -60,7 +60,9 @@ class LicenseManager
 
     public function invalid()
     {
-        return ! $this->valid();
+        // no-license-check
+        return true;
+        // return ! $this->valid();
     }
 
     public function statamicValid()

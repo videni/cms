@@ -16,7 +16,8 @@ class ContactOutpost
 
     public function handle($request, Closure $next)
     {
-        $this->outpost->radio();
+        // no-license-check
+        // $this->outpost->radio();
 
         return $next($request);
     }
