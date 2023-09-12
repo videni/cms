@@ -48,17 +48,17 @@ class Manifest extends PackageManifest
         $statamic = $json['extra']['statamic'] ?? [];
         $author = $json['authors'][0] ?? null;
 
-        $marketplaceData = Marketplace::package($package['name'], $package['version']);
+        // $marketplaceData = Marketplace::package($package['name'], $package['version']);
 
         return [
             'id' => $package['name'],
             'slug' => $statamic['slug'] ?? null,
             'editions' => $statamic['editions'] ?? [],
-            'marketplaceId' => data_get($marketplaceData, 'id', null),
-            'marketplaceSlug' => data_get($marketplaceData, 'slug', null),
-            'marketplaceUrl' => data_get($marketplaceData, 'url', null),
-            'marketplaceSellerSlug' => data_get($marketplaceData, 'seller', null),
-            'latestVersion' => data_get($marketplaceData, 'latest_version', null),
+            'marketplaceId' => data_get([], 'id', null),
+            'marketplaceSlug' => data_get([], 'slug', null),
+            'marketplaceUrl' => data_get([], 'url', null),
+            'marketplaceSellerSlug' => data_get([], 'seller', null),
+            'latestVersion' => data_get([], 'latest_version', null),
             'version' => Str::removeLeft($package['version'], 'v'),
             'namespace' => $namespace,
             'autoload' => $autoload,
