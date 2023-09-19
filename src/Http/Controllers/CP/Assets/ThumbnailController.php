@@ -81,7 +81,7 @@ class ThumbnailController extends Controller
      */
     private function asset($asset)
     {
-        if (! $asset = Asset::find(base64_decode($asset))) {
+        if (! $asset = Asset::find(base64url_decode($asset))) {
             abort(404);
         }
 
