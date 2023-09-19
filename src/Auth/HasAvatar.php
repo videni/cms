@@ -62,7 +62,7 @@ trait HasAvatar
         }
 
         return cp_route('assets.thumbnails.show', [
-            'encoded_asset' => base64_encode($assetId),
+            'encoded_asset' => base64url_encode($assetId),
             'size' => 'small',
             'orientation' => 'square',
         ]);

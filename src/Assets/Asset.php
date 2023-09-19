@@ -401,7 +401,7 @@ class Asset implements Arrayable, ArrayAccess, AssetContract, Augmentable, Conta
         }
 
         return cp_route('assets.thumbnails.show', [
-            'encoded_asset' => base64_encode($this->id()),
+            'encoded_asset' => base64url_encode($this->id()),
             'size' => $preset,
         ]);
     }
