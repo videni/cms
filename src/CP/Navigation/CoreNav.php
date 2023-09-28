@@ -175,10 +175,10 @@ class CoreNav
             ->view('statamic::nav.updates')
             ->can('view updates');
 
-        Nav::tools('Addons')
-            ->route('addons.index')
-            ->icon('/addons')
-            ->can('configure addons');
+        // Nav::tools('Addons')
+        //     ->route('addons.index')
+        //     ->icon('/addons')
+        //     ->can('configure addons');
 
         if (Stache::duplicates()->isNotEmpty()) {
             Nav::tools('Duplicate IDs')

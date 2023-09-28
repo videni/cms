@@ -55,15 +55,15 @@ class CoreUtilities
                 $router->post('/', [EmailController::class, 'send']);
             });
 
-        Utility::register('licensing')
-            ->action([LicensingController::class, 'show'])
-            ->title(__('Licensing'))
-            ->icon('licensing')
-            ->description(__('statamic::messages.licensing_utility_description'))
-            ->docsUrl(Statamic::docsUrl('licensing'))
-            ->routes(function ($router) {
-                $router->get('refresh', [LicensingController::class, 'refresh'])->name('refresh');
-            });
+        // Utility::register('licensing')
+        //     ->action([LicensingController::class, 'show'])
+        //     ->title(__('Licensing'))
+        //     ->icon('licensing')
+        //     ->description(__('statamic::messages.licensing_utility_description'))
+        //     ->docsUrl(Statamic::docsUrl('licensing'))
+        //     ->routes(function ($router) {
+        //         $router->get('refresh', [LicensingController::class, 'refresh'])->name('refresh');
+        //     });
 
         if (config('statamic.git.enabled') && Statamic::pro()) {
             Utility::register('git')
